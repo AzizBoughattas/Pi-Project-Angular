@@ -1,6 +1,7 @@
 export class UserStored {
     constructor(public email : string ,
         public id : string,
+        public idLong : string,
         public role : string,
         private _token : string ,
         private _tokenExpirationDate : Date

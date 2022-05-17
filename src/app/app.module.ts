@@ -23,6 +23,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import {DataTablesModule} from 'angular-datatables';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { StatComponent } from './stat/stat.component';
+import { VerifiedComponent } from './verified/verified.component';
 
 
 
@@ -58,7 +59,8 @@ import { StatComponent } from './stat/stat.component';
     ShoppingComponent,
     ForgetPasswordComponent,
     ChangePasswordComponent,
-    StatComponent
+    StatComponent,
+    VerifiedComponent
   ],
   providers: [{provide : HTTP_INTERCEPTORS , useClass : AuthInterceptorService, multi : true}],
   bootstrap: [AppComponent]

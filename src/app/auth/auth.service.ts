@@ -38,7 +38,7 @@ export class AuthService {
          
         }) , tap(resData => {
             const expirationDate = new Date(new Date().getTime() + 3600000)
-            const user = new UserStored(email , resData.headers.get('userid'),resData.headers.get('role'),resData.headers.get('authorization'),expirationDate)
+            const user = new UserStored(email , resData.headers.get('userid'), resData.headers.get('id'),resData.headers.get('role'),resData.headers.get('authorization'),expirationDate)
             this.user.next(user);
             this.autoLogout(3600000);
             localStorage.setItem('userData',JSON.stringify(user))
@@ -66,6 +66,7 @@ export class AuthService {
       const userData : {
           email : string,
           id:string,
+          idLong:string,
           role:string,
           _token:string,
           _tokenExpirationDate:string;
@@ -73,7 +74,7 @@ export class AuthService {
       if(!userData) {
           return;
       }
-      const loadedUser = new UserStored(userData.email,userData.id,userData.role,userData._token,new Date(userData._tokenExpirationDate))
+      const loadedUser = new UserStored(userData.email,userData.id,userData.idLong,userData.role,userData._token,new Date(userData._tokenExpirationDate))
 
       if(loadedUser.token) {
           this.user.next(loadedUser);

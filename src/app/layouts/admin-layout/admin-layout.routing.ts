@@ -24,6 +24,7 @@ import { ForgetPasswordComponent } from 'app/forget-password/forget-password.com
 import { ChangePasswordComponent } from 'app/change-password/change-password.component';
 import { StatComponent } from 'app/stat/stat.component';
 import { DisconnectGuard } from 'app/auth/disconnect.guard';
+import { VerifiedComponent } from 'app/verified/verified.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -73,6 +74,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
     {path : 'auth' , component: AuthComponent,canActivate : [DisconnectGuard]},
     {path : 'home' , component: HomeComponent},
+    {path : 'verification' , component: VerifiedComponent,canActivate : [DisconnectGuard]},
     {path : 'statistique' , component: StatComponent,canActivate : [AuthAdminGuard]},
     {path : 'forget-password' , component: ForgetPasswordComponent,canActivate : [DisconnectGuard]},
     {path : 'change-password' , component: ChangePasswordComponent,canActivate : [DisconnectGuard]},
